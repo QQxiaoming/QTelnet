@@ -14,7 +14,7 @@ class QTelnetTester : public QMainWindow
 	Q_OBJECT
 
 	Ui::QTelnetTester *ui;
-	QTelnet telnet;
+    QTelnet *telnet;
 
 public:
 	explicit QTelnetTester(QWidget *parent = 0);
