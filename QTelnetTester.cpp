@@ -30,30 +30,37 @@ void QTelnetTester::onStateChanged(QAbstractSocket::SocketState s)
 	case QAbstractSocket::UnconnectedState:
 		setStatusText( tr("Desconectado"), true );
 		ui->btConnect->setText( tr("Conectar") );
+        ui->comboBox->setEnabled(true);
 		break;
 	case QAbstractSocket::HostLookupState:
         setStatusText( tr("Resolviendo DNS %1").arg(telnet->peerName()), true );
 		ui->btConnect->setText( tr("Cancelar") );
+        ui->comboBox->setEnabled(true);
 		break;
     case QAbstractSocket::ConnectingState:
         setStatusText( tr("Conectando a %1").arg(telnet->peerInfo()), true );
 		ui->btConnect->setText( tr("Cancelar") );
+        ui->comboBox->setEnabled(true);
 		break;
 	case QAbstractSocket::ConnectedState:
         setStatusText( tr("Conectado a %1").arg(telnet->peerInfo()), true );
 		ui->btConnect->setText( tr("Desconectar") );
+        ui->comboBox->setEnabled(false);
 		break;
 	case QAbstractSocket::BoundState:
 		setStatusText( tr("Enlazado"), true );
 		ui->btConnect->setText( tr("- - - -") );
+        ui->comboBox->setEnabled(false);
 		break;
 	case QAbstractSocket::ListeningState:
 		setStatusText( tr("Escuchando"), true );
 		ui->btConnect->setText( tr("- - - -") );
+        ui->comboBox->setEnabled(false);
 		break;
 	case QAbstractSocket::ClosingState:
 		setStatusText( tr("Cerrando"), true );
 		ui->btConnect->setText( tr("Forzar cierre") );
+        ui->comboBox->setEnabled(false);
 		break;
 
 	}
@@ -81,6 +88,12 @@ void QTelnetTester::onCommand(const QString &cmd)
 
 void QTelnetTester::on_btConnect_clicked()
 {
+    if(ui->comboBox->currentText() == "TCP") {
+        telnet->setType(QTelnet::TCP);
+    } else if(ui->comboBox->currentText() == "WebSocket") {
+        telnet->setType(QTelnet::WEBSOCKET);
+    }
+
     if( telnet->isConnected() )
         telnet->disconnectFromHost();
 	else

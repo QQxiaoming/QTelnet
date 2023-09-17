@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" rowspan="4">
+    <item row="0" column="0" rowspan="7">
      <widget class="QPlainTextEdit" name="teOutput">
       <property name="font">
        <font>
@@ -27,37 +27,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="leAddr">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QSpinBox" name="sbPort">
-      <property name="minimum">
-       <number>1</number>
-      </property>
-      <property name="maximum">
-       <number>65535</number>
-      </property>
-      <property name="value">
-       <number>23</number>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QPushButton" name="btConnect">
-      <property name="text">
-       <string>Connect</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
+    <item row="6" column="1">
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -70,10 +40,54 @@
       </property>
      </spacer>
     </item>
-    <item row="4" column="0" colspan="2">
+    <item row="3" column="1">
+     <widget class="QSpinBox" name="sbPort">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>65535</number>
+      </property>
+      <property name="value">
+       <number>23</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>TCP</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>WebSocket</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="7" column="0" colspan="2">
      <widget class="QCmdWidget" name="cbCmd">
       <property name="editable">
        <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="btConnect">
+      <property name="text">
+       <string>Connect</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="leAddr">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
      </widget>
     </item>
@@ -85,7 +99,7 @@
      <x>0</x>
      <y>0</y>
      <width>682</width>
-     <height>26</height>
+     <height>36</height>
     </rect>
    </property>
   </widget>

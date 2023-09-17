@@ -115,6 +115,7 @@ private:
 public:
     explicit QTelnet(SocketType type = TCP, QObject *parent = 0);
 
+    void setType(SocketType type);
     void connectToHost(const QString &hostName, quint16 port);
     void disconnectFromHost(void);
     void sendData(const QByteArray &ba);

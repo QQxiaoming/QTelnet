@@ -27,6 +27,11 @@ QTelnet::QTelnet(SocketType type, QObject *parent) :
     connect(&m_webSocket, SIGNAL(stateChanged(QAbstractSocket::SocketState)), this, SLOT(onStateChanged(QAbstractSocket::SocketState)) );
 }
 
+void QTelnet::setType(SocketType type)
+{
+    m_socketType = type;
+}
+
 QString QTelnet::peerInfo() const
 {
     if(m_socketType == TCP)
