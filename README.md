@@ -1,4 +1,15 @@
 # QTelnet
+
+fork 自https://github.com/silderan/QTelnet.git 我做了一些工作：
+
+- 增加了WebSocket的支持，以适应qt for WebAssembly。
+
+代码在Qt6.5.2上测试通过，如果是Qt5.x的版本，可能需要非常简单修改一下代码，但应该也是没太大问题。
+
+以下为原始的README.md
+
+## QTelnet
+
 A telnet client using Qt5 framework. Originally created for Siragga MUD client (not public).
 
 This is a very basic telnet client, unblocking and easy to use.
