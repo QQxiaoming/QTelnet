@@ -31,36 +31,50 @@ void QTelnetTester::onStateChanged(QAbstractSocket::SocketState s)
 		setStatusText( tr("Desconectado"), true );
 		ui->btConnect->setText( tr("Conectar") );
         ui->comboBox->setEnabled(true);
+        ui->sbPort->setEnabled(true);
+        ui->leAddr->setEnabled(true);
 		break;
 	case QAbstractSocket::HostLookupState:
         setStatusText( tr("Resolviendo DNS %1").arg(telnet->peerName()), true );
 		ui->btConnect->setText( tr("Cancelar") );
         ui->comboBox->setEnabled(true);
+        ui->sbPort->setEnabled(true);
+        ui->leAddr->setEnabled(true);
 		break;
     case QAbstractSocket::ConnectingState:
         setStatusText( tr("Conectando a %1").arg(telnet->peerInfo()), true );
 		ui->btConnect->setText( tr("Cancelar") );
         ui->comboBox->setEnabled(true);
+        ui->sbPort->setEnabled(true);
+        ui->leAddr->setEnabled(true);
 		break;
 	case QAbstractSocket::ConnectedState:
         setStatusText( tr("Conectado a %1").arg(telnet->peerInfo()), true );
 		ui->btConnect->setText( tr("Desconectar") );
         ui->comboBox->setEnabled(false);
+        ui->sbPort->setEnabled(false);
+        ui->leAddr->setEnabled(false);
 		break;
 	case QAbstractSocket::BoundState:
 		setStatusText( tr("Enlazado"), true );
 		ui->btConnect->setText( tr("- - - -") );
         ui->comboBox->setEnabled(false);
+        ui->sbPort->setEnabled(false);
+        ui->leAddr->setEnabled(false);
 		break;
 	case QAbstractSocket::ListeningState:
 		setStatusText( tr("Escuchando"), true );
 		ui->btConnect->setText( tr("- - - -") );
         ui->comboBox->setEnabled(false);
+        ui->sbPort->setEnabled(false);
+        ui->leAddr->setEnabled(false);
 		break;
 	case QAbstractSocket::ClosingState:
 		setStatusText( tr("Cerrando"), true );
 		ui->btConnect->setText( tr("Forzar cierre") );
         ui->comboBox->setEnabled(false);
+        ui->sbPort->setEnabled(false);
+        ui->leAddr->setEnabled(false);
 		break;
 
 	}
